@@ -11,7 +11,23 @@ public class Correo {
     private List<Contacto> Para = new ArrayList<>();
 
     public Correo(String Asunto, String Contenido, Contacto Remitente, List<Contacto> Para){
+        this.Asunto= Asunto;
+        this.Contenido= Contenido;
+        this.Remitente= Remitente;
+        this.Para= Para; 
+        
+    }
+    
+    public String getAsunto(){
+        return Asunto;
+    }
 
+     public String getContenido(){
+        return Contenido;
+    }
+
+     public Contacto getRemitente(){
+        return Remitente;
     }
 
     public void AgregarContacto(Contacto contacto1){
@@ -21,11 +37,6 @@ public class Correo {
 
     public List<Contacto> getPara(){
         return Para;
-    }
-
-    public void EnviarCorreo(Correo correo1){
-        Remitente.BandejaDeEnviados.add(correo1);
-
     }
 
 
