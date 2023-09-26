@@ -5,29 +5,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Correo {
-    private String Asunto;
-    private String Contenido;
-    private Contacto Remitente;
-    private List<Contacto> Para = new ArrayList<>();
 
-    public Correo(String Asunto, String Contenido, Contacto Remitente, List<Contacto> Para){
-        this.Asunto= Asunto;
-        this.Contenido= Contenido;
-        this.Remitente= Remitente;
-        this.Para= Para; 
-        
+    private String asunto;
+    private String contenido;
+    private Contacto remitente;
+   // private List<Contacto> Para = new ArrayList<>();
+
+    public Correo(String asunto, String contenido, Contacto remitente /*List<Contacto> Para*/){
+        this.asunto= asunto;
+        this.contenido= contenido;
+        this.remitente= remitente;
+        //this.Para= Para; 
+
     }
     
     public String getAsunto(){
-        return Asunto;
+        return asunto;
     }
 
      public String getContenido(){
-        return Contenido;
+        return contenido;
     }
 
      public Contacto getRemitente(){
-        return Remitente;
+        return remitente;
     }
 
     public void AgregarContacto(Contacto contacto1){
@@ -35,9 +36,10 @@ public class Correo {
 
     }
 
-    public List<Contacto> getPara(){
+    /*  public List<Contacto> getPara(){
         return Para;
     }
+    */
 
 
 
