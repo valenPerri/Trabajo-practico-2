@@ -1,6 +1,6 @@
 package com.tp2;
 
-public class Bandeja {
+public class Buzon {
 
     //entrada-remitente
     //salida-destinatario
