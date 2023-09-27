@@ -9,13 +9,13 @@ public class Correo {
     private String asunto;
     private String contenido;
     private Contacto remitente;
-   // private List<Contacto> Para = new ArrayList<>();
+    private List<Contacto> para = new ArrayList<>();
 
-    public Correo(String asunto, String contenido, Contacto remitente /*List<Contacto> Para*/){
+    public Correo(String asunto, String contenido, Contacto remitente, List<Contacto> para){
         this.asunto= asunto;
         this.contenido= contenido;
         this.remitente= remitente;
-        //this.Para= Para; 
+        this.para= para; 
 
     }
     
@@ -32,17 +32,19 @@ public class Correo {
     }
 
     public void AgregarContacto(Contacto contacto1){
-        Para.add(contacto1);
+        para.add(contacto1);
 
     }
 
-    /*  public List<Contacto> getPara(){
-        return Para;
+     public List<Contacto> getPara(){
+        return para;
     }
-    */
+    
 
 
 
+
+    
 
     
 }

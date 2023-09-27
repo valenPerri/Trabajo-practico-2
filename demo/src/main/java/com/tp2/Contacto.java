@@ -3,28 +3,32 @@ package com.tp2;
 
 public class Contacto {
 
-    private String Nombre;
-    private String Apellido;
-    private String Email;
+  private String nombre;
+  private String apellido;
+  private String email;
 
-  public String getNombre(){
-        return Nombre;
+public String getNombre(){
+      return nombre;
+  }
+public String getApellido(){
+      return apellido;
+  }
+
+public String getEmail(){
+      return email;
+  }
+
+ public Contacto(String nombre,String apellido, String email){
+    this.nombre=nombre; 
+    this.apellido= apellido;
+    this.email=email;
+  
+
+  }
+
+
+
     }
-  public String getApellido(){
-        return Apellido;
-    }
-
-  public String getEmail(){
-        return Email;
-    }
-
-   public Contacto(String Nombre,String Apellido, String Email){
-      this.Nombre=Nombre; 
-      this.Apellido= Apellido;
-      this.Email=Email;
-    
-
-    }
 
 
 
@@ -33,6 +37,3 @@ public class Contacto {
 
 
 
-
-
-}
