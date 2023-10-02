@@ -1,7 +1,15 @@
 package com.tp2;
 
-public class Buzon {
+import java.util.ArrayList;
+import java.util.List;
 
-    //entrada-remitente
-    //salida-destinatario
+public class Buzon {
+private List<Correo> BandejaDeEntrada;
+private List<Correo> BandejaDeEnviados;
+
+
+public Buzon(){
+    
+}
+   
 }

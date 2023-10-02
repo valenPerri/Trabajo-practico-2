@@ -3,8 +3,8 @@ package com.tp2;
 
 public class Contacto {
 
-  private String nombre;
-  private String apellido;
+  private String nombre= " ";
+  private String apellido= " ";
   private String email;
 
 public String getNombre(){

@@ -1,22 +1,16 @@
 package com.tp2;
-
-import java.util.ArrayList;
-
-import java.util.List;
-
 public class Correo {
 
-    private String asunto;
-    private String contenido;
+    private String asunto = " ";
+    private String contenido = " ";
     private Contacto remitente;
-    private List<Contacto> para = new ArrayList<>();
+   
 
-    public Correo(String asunto, String contenido, Contacto remitente, List<Contacto> para){
+    public Correo(String asunto, String contenido, Contacto remitente){
         this.asunto= asunto;
         this.contenido= contenido;
         this.remitente= remitente;
-        this.para= para; 
-
+        
     }
     
     public String getAsunto(){
@@ -31,15 +25,9 @@ public class Correo {
         return remitente;
     }
 
-    public void AgregarContacto(Contacto contacto1){
-        para.add(contacto1);
-
+    public void setAsunto(){
+        this.a
     }
-
-     public List<Contacto> getPara(){
-        return para;
-    }
-    
 
 
 
