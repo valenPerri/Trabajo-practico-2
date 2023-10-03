@@ -1,15 +1,18 @@
 package com.tp2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Buzon {
-private List<Correo> BandejaDeEntrada;
-private List<Correo> BandejaDeEnviados;
 
+  private String emailInterno= " ";
 
-public Buzon(){
-    
-}
+  public Buzon(){
+  }
+
+  public String getEmailInterno(){
+    return emailInterno;
+  }
+
+   public void setEmailInterno(String emailInterno){
+    this.emailInterno = emailInterno;
+  }
    
 }
