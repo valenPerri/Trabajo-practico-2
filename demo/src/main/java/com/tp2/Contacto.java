@@ -1,8 +1,5 @@
 package com.tp2;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Contacto {
 
     private String nombre;
@@ -16,9 +13,11 @@ public class Contacto {
     }
 
     public void setEmail(String email) {
-        String expresion = "^[A-Za-z0-9+_.-]+@(.+)$"; // define regex que da una expresion regular para verificar el  correo (letras, numeros seguidos de @)
-        Pattern pattern = Pattern.compile(expresion); // crea el objeto atraves de la expresion
-        Matcher matcheo = pattern.matcher(email); // machea el email con las expresiones que se cargaron por lo que si mail coincide hace el match sino lo toma como invalido
+
+        String expresion = "^[A-Za-z0-9+_.-]+@(.+)$"; // define regex para verificar el correo (letras, números seguidos de @)
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(expresion); // crea el objeto a través de la expresión
+        java.util.regex.Matcher matcheo = pattern.matcher(email); // hace match del email con las expresiones
+
 
         if (matcheo.matches()) {
             this.email = email; // aca hacemos el match
@@ -32,7 +31,7 @@ public class Contacto {
         return email;
     }
 
-    public void mostrarDatos() {
+    public void mostrarContacto() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Apellido: " + apellido);
         System.out.println("Correo electrónico: " + email);

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 public static void main(String[] args) {
+    
         Scanner scanner = new Scanner(System.in);
         List<Contacto> listaContactos = new ArrayList<>();
 
@@ -39,7 +40,7 @@ public static void main(String[] args) {
         if (listaContactos.size() > 0) {
             System.out.println("Lista de contactos:");
             for (Contacto contacto : listaContactos) {
-                contacto.mostrarDatos();
+                contacto.mostrarContacto();
             }
         }
 

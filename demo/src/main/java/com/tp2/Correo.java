@@ -14,7 +14,7 @@ public class Correo {
         this.asunto= asunto;
         this.contenido= contenido;
         this.remitente= remitente;
-        this.para.add(paraUnico);
+        this.para=List.of(paraUnico);
     }
 
     public Correo(String asunto, String contenido, Contacto remitente, List<Contacto> paraVarios){ //constructorVarios

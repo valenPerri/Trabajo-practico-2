@@ -28,6 +28,9 @@ public class Filtros {
     public void setCriterio(String criterio){
         this.criterio= criterio;
     }
+//filtros como @ucp.com que a su vez tengan decanato (Para mas importante)
+//alumnado
+//administracion que a su vez tengan Pagos electronicos
 
 
 }
