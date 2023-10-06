@@ -19,7 +19,7 @@ public class Filtro {
 
     }
 
-private boolean contienePalabrasFiltros(Correo correo, List<String> palabrasFiltradas){
+public boolean contienePalabrasFiltros(Correo correo, List<String> palabrasFiltradas){
         String contenidoCorreo =correo.getAsunto() + " " + correo.getContenido() + " " + correo.getRemitente();
         for(String palabraFiltro : palabrasFiltradas){
             if(contenidoCorreo.toLowerCase().contains(palabraFiltro.toLowerCase())){
