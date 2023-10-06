@@ -20,5 +20,9 @@ private boolean contienePalabrasFiltrosEnAsunto(List<Correo> correos, String pal
     return ((Correo) correos).getAsunto().toLowerCase().contains(palabraFiltro.toLowerCase());
 }
 
+public boolean contienePalabrasFiltrosEnAsunto(Correo correo, String palabraFiltro) {
+    return false;
+}
+
 }
     

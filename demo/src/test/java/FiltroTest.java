@@ -87,7 +87,7 @@ public void test_contienePalabraDeFiltro(){
         assertTrue(resultado); // true por que se encuentran esas palabras
     }
 
-@Test
+    @Test
 public void test_NOcontienePalabraDeFiltro(){
         Filtro filtro = new Filtro();
         Correo correo = new Correo("Mesa de examen", "18/12", "Profesor titular");

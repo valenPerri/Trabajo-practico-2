@@ -15,7 +15,7 @@ public class FiltroCorreo {
         }
         return correoFiltrado;
     }
-
+    
 private boolean contienePalabrasFiltro(Correo correo, String palabrasFiltradas){
     String contenidoCorreo= correo.getAsunto() + " " + correo.getContenido() + " " + correo.getRemitente();
     for(String palabraFiltro : palabrasFiltradas){
