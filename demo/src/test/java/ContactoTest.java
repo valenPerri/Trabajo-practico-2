@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -70,7 +69,7 @@ public class ContactoTest {
     public void test_CorreoNoValido(){
         exceptionRule.expect(IllegalArgumentException.class);
         exceptionRule.expectMessage("El correo electrónico no es válido");
-        Contacto c1= new Contacto("memo");
+        new Contacto("memo");
  }
 
 @Test
