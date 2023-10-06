@@ -2,30 +2,59 @@ package com.tp2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class EmailManager {
-    private List<Buzon> buzones;
-    private Correo email;
+    private List<Buzon> buzones = new ArrayList<>();
+   
 
 
-public EmailManager(List<Buzon> buzones,Correo email){
+public EmailManager(List<Buzon> buzones){
     this.buzones= new ArrayList<>(buzones);
-    this.email= email;
+}
+
+public void agregarBuzones(Buzon usuario){
+    buzones.add(usuario);
 
 }
 
-public EmailManager(){
 
-}
+
 
 public List<Buzon> getBuzones(){
     return buzones;
 }
 
-public Correo getEmail(){
-    return email;
-}
-
+public void crearCorreo(){
 
 }
 
+public void buscarCorreo(){
+    
+}
+
+public void enviarCorreo(Correo email){
+    String remitenteCorreo =email.getRemitente();
+
+    Optional<Buzon> buzonRemitente = buzones.stream()
+    .filter(buzon -> buzon.getEmailInterno().equals(remitenteCorreo))
+    .findFirst();
+
+
+    buzonRemitente.ifPresent(remitente -> remitente.getBandejaDeEnviados().add(email));
+    List<String> destinatarios= email.getPara();
+
+    for(String destinatarioEmail : destinatarios){
+        Optional<Buzon> buzonDestinatarios = buzones.stream()
+            .filter(buzon -> buzon.getEmailInterno().equals(destinatarioCorreo))
+            .findFirst();
+
+            buzonDestinatarios.ifPresent(destinatarios -> destinatarios.getBandejaDeEntrada().add(email));
+    }
+    
+}
+
+
+
+
+}

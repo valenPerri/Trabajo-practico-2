@@ -1,5 +1,8 @@
 package com.tp2;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Contacto {
 
     private String nombre;
@@ -9,36 +12,46 @@ public class Contacto {
     public Contacto(String nombre, String apellido, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
-        setEmail(email);
+        this.email= email;
     }
 
-    public void setEmail(String email) {
+    public Contacto(String email) {  
+        this.setEmail(email);
+    }
 
-        String expresion = "^[A-Za-z0-9+_.-]+@(.+)$"; // define regex para verificar el correo (letras, números seguidos de @)
-        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(expresion); // crea el objeto a través de la expresión
-        java.util.regex.Matcher matcheo = pattern.matcher(email); // hace match del email con las expresiones
+    public void setNombre(String nuevoNombre) {
+        this.nombre = nuevoNombre;
+    }
 
+    public void setApellido(String nuevoApellido) {
+        this.nombre = nuevoApellido;
+    }
 
-        if (matcheo.matches()) {
-            this.email = email; // aca hacemos el match
-        } else {
-            System.out.println("El correo electrónico no es válido");
-            this.email = null; // nulo si es inválido
-        }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void mostrarContacto() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
-        System.out.println("Correo electrónico: " + email);
-        System.out.println();
+    public void setEmail(String email) {
+    String expresion = "^[A-Za-z0-9+_.-]+@(.+)$"; // define regex para verificar el correo (letras, números seguidos de @)
+    Pattern pattern = java.util.regex.Pattern.compile(expresion); // crea el objeto a través de la expresión
+    Matcher matcheo = pattern.matcher(email); // hace match del email con las expresiones
+
+    if (matcheo.matches()) {
+        this.email = email; // aca hacemos el match
+    } 
+    else {
+        throw new IllegalArgumentException("El correo electrónico no es válido");
     }
 
-
+}
 
 
 

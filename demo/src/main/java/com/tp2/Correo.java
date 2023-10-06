@@ -1,31 +1,37 @@
 package com.tp2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Correo {
 
     private String asunto = " ";
     private String contenido = " ";
-    private Contacto remitente;
-    private List<Contacto> para;
+    private String remitente;
+    private List<String> para;
    
 
-    public Correo(String asunto, String contenido, Contacto remitente, Contacto paraUnico){ //constructorUnico
+    public Correo(String asunto, String contenido, String remitente, String paraUnico){ //constructorUnico
         this.asunto= asunto;
         this.contenido= contenido;
         this.remitente= remitente;
-        this.para=List.of(paraUnico);
+        this.para=new ArrayList<>();
+        this.para.add(paraUnico);
     }
 
-    public Correo(String asunto, String contenido, Contacto remitente, List<Contacto> paraVarios){ //constructorVarios
+    public Correo(String asunto, String contenido, String remitente, List<String> paraVarios){ //constructorVarios
         this.asunto= asunto;
         this.contenido= contenido;
         this.remitente= remitente;
+        this.para=new ArrayList<>();
         this.para= paraVarios;    
     }
 
-    public Correo(){
-
+      public Correo(String asunto, String contenido, String remitente){ //constructorVarios
+        this.asunto= asunto;
+        this.contenido= contenido;
+        this.remitente= remitente;
+  
     }
 
     public String getAsunto(){
@@ -36,23 +42,13 @@ public class Correo {
         return contenido;
     }
 
-     public Contacto getRemitente(){
+     public String getRemitente(){
         return remitente;
     }
-
-    public void setAsunto(String asunto){
-        this.asunto = asunto;
+     public List<String> getPara(){
+        return para;
     }
 
-    public void setContenido(String contenido){
-        this.contenido= contenido;
-    }
-
-    public void setRemitente(Contacto remitente){
-        this.remitente= remitente;
-    }
-
-    
 
 
 
