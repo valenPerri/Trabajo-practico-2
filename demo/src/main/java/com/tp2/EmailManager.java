@@ -8,6 +8,9 @@ public class EmailManager {
     private List<Buzon> buzones = new ArrayList<>();
    
 
+public EmailManager(){
+}
+
 public EmailManager(List<Buzon> buzones){
     this.buzones= new ArrayList<>(buzones);
 }
@@ -24,12 +27,7 @@ public void setPara(List<Buzon> para) {
     this.buzones = para;
 }
 
-public List<Buzon> getBuzones(){
-    return buzones;
-}
-
-public void crearCorreo(){
-
+public void getCorreo(){
 }
 
 public void buscarCorreo(){

@@ -34,6 +34,10 @@ public class Correo {
   
     }
 
+    public Correo(){
+    }
+
+
     public String getAsunto(){
         return asunto;
     }

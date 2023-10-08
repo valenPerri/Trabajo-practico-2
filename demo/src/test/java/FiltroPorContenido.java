@@ -1,5 +1,5 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,6 @@ import com.tp2.Correo;
 import com.tp2.Filtro;
 
 public class FiltroPorContenido {
-
-
 
  @Test
 public void test_filtrarPorContenido() {
@@ -28,11 +26,5 @@ public void test_filtrarPorContenido() {
     assertEquals(correo2, correoFiltrado.get(0));
 }
 
-
-@Test
-
-public void test_ContienePalabrasFiltrosEnContenido(){
-
-}
 
 }

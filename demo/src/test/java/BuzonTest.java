@@ -13,7 +13,7 @@ import com.tp2.Buzon;
 import com.tp2.Correo;
 
 
-public class BuzonTest {   //siempre utilizamos un buzon de prueba
+public class BuzonTest {   //generalmente utilizamos un buzon de prueba
 
  private Buzon buzon;
 
@@ -25,7 +25,7 @@ public void test_getEmailInterno(){
     List<Correo> bandejaDeEnviados = new ArrayList<>(); 
     buzon = new Buzon(emailInterno, bandejaDeEntrada, bandejaDeEnviados);
 
-        assertEquals("demo@ucp.com", buzon.getEmailInterno());
+    assertEquals("demo@ucp.com", buzon.getEmailInterno());
   
     }
 
@@ -37,8 +37,8 @@ public void test_getBandejadeEntrada(){
     List<Correo> bandejaDeEnviados = new ArrayList<>();
     buzon = new Buzon(emailInterno, bandejaDeEntrada, bandejaDeEnviados);
 
-        assertNotNull(buzon.getBandejaDeEntrada());
-        assertEquals(0, buzon.getBandejaDeEntrada().size()); // bandeja vacia al inicio
+    assertNotNull(buzon.getBandejaDeEntrada());
+    assertEquals(0, buzon.getBandejaDeEntrada().size()); // bandeja vacia al inicio
 }
 
          
@@ -55,17 +55,22 @@ public void test_getBandejadeEnviados(){
 }
 
 @Test
-
 public void test_crearBuzon(){
+
     Buzon buzon = new Buzon("demo@ucp.com", null, null);
 
     assertNotNull(buzon.getBandejaDeEntrada());
     assertNotNull(buzon.getBandejaDeEnviados());
     assertTrue(buzon.getBandejaDeEntrada().isEmpty());
     assertTrue(buzon.getBandejaDeEnviados().isEmpty());
-
 }
 
+@Test
+public void test_crearBuzon2(){
+    Buzon buzon = new Buzon("depto1@gmail.com", null, null);
+
+    assertNotNull(buzon);
+}
 
 @Test
  public void test_agregarCorreoBdeEntrada() {
@@ -90,8 +95,7 @@ public void test_crearBuzon(){
     List<Correo> bandejaDeEntrada = new ArrayList<>();
     List<Correo> bandejaDeEnviados = new ArrayList<>();
     buzon = new Buzon(emailInterno, bandejaDeEntrada, bandejaDeEnviados);
-        
-        
+            
     Correo correo = new Correo("Realizacion del pago", "estoy al dia con el pago", "Alumno");
     buzon.getBandejaDeEnviados().add(correo);
 
