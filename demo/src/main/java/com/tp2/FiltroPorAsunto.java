@@ -8,7 +8,7 @@ public class FiltroPorAsunto {
     public List<Correo> filtarPorAsunto(List<Correo> correos, String palabraFiltro){
         List<Correo> correoFiltrado=  new ArrayList<>();
         for(Correo correo: correos){
-            if(contienePalabrasFiltrosEnAsunto(correos,palabraFiltro)){
+            if(contienePalabrasFiltrosEnAsunto(correo,palabraFiltro)){
                 correoFiltrado.add(correo);
             }
         }
@@ -16,13 +16,12 @@ public class FiltroPorAsunto {
              return correoFiltrado;
     }
 
-private boolean contienePalabrasFiltrosEnAsunto(List<Correo> correos, String palabraFiltro){
-    return ((Correo) correos).getAsunto().toLowerCase().contains(palabraFiltro.toLowerCase());
+
+private boolean contienePalabrasFiltrosEnAsunto(Correo correo, String palabraFiltro){
+    return correo.getAsunto().toLowerCase().contains(palabraFiltro.toLowerCase());
 }
 
-public boolean contienePalabrasFiltrosEnAsunto(Correo correo, String palabraFiltro) {
-    return false;
-}
+
 
 }
     

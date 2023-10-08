@@ -10,11 +10,15 @@ import org.junit.Test;
 
 import com.tp2.Correo;
 import com.tp2.Filtro;
+import com.tp2.FiltroCorreo;
 
 public class FiltroCorreoTest {
 
+     private FiltroCorreo filtroCorreo;
+    
+
  @Test
-public void test_filtrarCorreo() {
+public void test_filtrarCorreos() {
 
         Filtro filtro = new Filtro();
         List<Correo> correos = new ArrayList<>();
@@ -58,5 +62,34 @@ public void test_NOcontienePalabraDeFiltro(){
         assertFalse(null, resultado); // false por que no se encuentran esas palabras
     }
 
+    @Test
+    public void test_CorreoEntero(){
+
+        filtroCorreo = new FiltroCorreo();
+        List<Correo> correos = new ArrayList<>();
+
+         Correo correo1 = new Correo("Comida", "no hay mas comida", "kimba09@perrito.com");
+         Correo correo2 = new Correo("Reclamo", "ruidos molestos", "vecino4@depto.com");  //correos prueba
+        
+         correos.add(correo1);
+         correos.add(correo2);
+
+       
+         List<String> palabrasFiltradas = new ArrayList<>();   //palabras que filtraremos
+         palabrasFiltradas.add("comida"); 
+         palabrasFiltradas.add("vecino4@depto.com");
+ 
+         List<Correo> correoFiltrado = filtroCorreo.filtarCorreos(correos, palabrasFiltradas);
+         assertEquals(2, correoFiltrado.size()); // verifica y mantiene todos los correos
+     }
     
-}
+    
+        
+    }
+
+
+
+
+
+
+

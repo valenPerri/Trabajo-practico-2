@@ -5,10 +5,10 @@ import java.util.List;
 
 public class FiltroPorRemitente {
 
-          public List<Correo> filtarPorRemitente (List<Correo> correos, String palabraFiltro){
+    public List<Correo> filtarPorRemitente (List<Correo> correos, String palabraFiltro){
         List<Correo> correoFiltrado=  new ArrayList<>();
         for(Correo correo: correos){
-            if(contienePalabrasFiltrosEnRemitente(correos,palabraFiltro)){
+            if(contienePalabrasFiltrosEnRemitente(correo,palabraFiltro)){
                 correoFiltrado.add(correo);
             }
         }
@@ -16,8 +16,8 @@ public class FiltroPorRemitente {
              return correoFiltrado;
     }
 
-private boolean contienePalabrasFiltrosEnRemitente(List<Correo> correos, String palabraFiltro){
-    return ((Correo) correos).getRemitente().toLowerCase().contains(palabraFiltro.toLowerCase());
+private boolean contienePalabrasFiltrosEnRemitente(Correo correo, String palabraFiltro){
+    return  correo.getRemitente().toLowerCase().contains(palabraFiltro.toLowerCase());
 }
     
 }

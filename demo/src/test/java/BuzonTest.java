@@ -54,6 +54,18 @@ public void test_getBandejadeEnviados(){
     assertEquals(0, buzon.getBandejaDeEnviados().size()); //bandeja vacia 
 }
 
+@Test
+
+public void test_crearBuzon(){
+    Buzon buzon = new Buzon("demo@ucp.com", null, null);
+
+    assertNotNull(buzon.getBandejaDeEntrada());
+    assertNotNull(buzon.getBandejaDeEnviados());
+    assertTrue(buzon.getBandejaDeEntrada().isEmpty());
+    assertTrue(buzon.getBandejaDeEnviados().isEmpty());
+
+}
+
 
 @Test
  public void test_agregarCorreoBdeEntrada() {

@@ -8,18 +8,21 @@ public class EmailManager {
     private List<Buzon> buzones = new ArrayList<>();
    
 
-
 public EmailManager(List<Buzon> buzones){
     this.buzones= new ArrayList<>(buzones);
 }
 
 public void agregarBuzones(Buzon usuario){
     buzones.add(usuario);
-
 }
 
+public List<Buzon> getPara(){
+    return buzones;
+}
 
-
+public void setPara(List<Buzon> para) {
+    this.buzones = para;
+}
 
 public List<Buzon> getBuzones(){
     return buzones;
@@ -44,12 +47,12 @@ public void enviarCorreo(Correo email){
     buzonRemitente.ifPresent(remitente -> remitente.getBandejaDeEnviados().add(email));
     List<String> destinatarios= email.getPara();
 
-    for(String destinatarioEmail : destinatarios){
+    for(String destinatarioCorreo : destinatarios){
         Optional<Buzon> buzonDestinatarios = buzones.stream()
             .filter(buzon -> buzon.getEmailInterno().equals(destinatarioCorreo))
             .findFirst();
 
-            buzonDestinatarios.ifPresent(destinatarios -> destinatarios.getBandejaDeEntrada().add(email));
+            buzonDestinatarios.ifPresent(destinatario -> destinatario.getBandejaDeEntrada().add(email));
     }
     
 }
