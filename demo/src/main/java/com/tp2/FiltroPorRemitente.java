@@ -2,25 +2,26 @@ package com.tp2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class FiltroPorRemitente {
 
-public List<Correo> filtarPorRemitente (List<Correo> correos, String palabraFiltro){
-        List<Correo> correoFiltrado=  new ArrayList<>();
-        for(Correo correo: correos){
-            if(contienePalabrasFiltrosEnRemitente(correo,palabraFiltro)){
-                correoFiltrado.add(correo);
-            }
-        }
+  public List<Correo> filtroPorRemitente(Buzon buzon, String remitente) {
+        List<Correo> bandejaDeEntrada = buzon.getBandejaDeEntrada();
+        List<Correo> bandejaDeEnviados = buzon.getBandejaDeEnviados();
 
-             return correoFiltrado;
+        List<Correo> correoFiltradoEntrada = bandejaDeEntrada.stream().filter(correo -> correo.getRemitente().contains(remitente)).collect(Collectors.toList());
+        
+        List<Correo> correoFiltradoEnviados = bandejaDeEnviados.stream().filter(correo -> correo.getRemitente().contains(remitente)).collect(Collectors.toList());
+
+        List<Correo> correoFiltrados = new ArrayList<>();
+
+        correoFiltrados.addAll(correoFiltradoEntrada);
+        correoFiltrados.addAll(correoFiltradoEnviados);
+
+        return correoFiltrados;
     }
-
-public boolean contienePalabrasFiltrosEnRemitente(Correo correo, String palabraFiltro){
-    return  correo.getRemitente().toLowerCase().contains(palabraFiltro.toLowerCase());
-} 
-
 
 
 }

@@ -12,7 +12,7 @@ public class ContactoTest {
     public ExpectedException exceptionRule = ExpectedException.none();
 
 @Test
-   public void test_crearContacto(){
+   public void test_crearContactoValido(){
 
       Contacto contacto = new Contacto("Juan", "Rodriguez", "juan91@gmail.com"); 
         assertEquals("Juan", contacto.getNombre());
@@ -21,11 +21,19 @@ public class ContactoTest {
     }
 
 @Test
+   public void test_crearContactoValido2(){
+
+      Contacto contacto = new Contacto("Maria", "Martinez", "marita@gmail.com"); 
+        assertEquals("Maria", contacto.getNombre());
+        assertEquals("Martinez", contacto.getApellido());
+        assertEquals("marita@gmail.com", contacto.getEmail());
+    }
+
+@Test
    public void test_ContactoSinNombre(){
       Contacto contacto = new Contacto( "juan91@gmail.com"); 
         assertEquals("juan91@gmail.com", contacto.getEmail());
     }
-
 
 @Test
    public void  test_setNombre(){
@@ -42,7 +50,6 @@ public class ContactoTest {
        contacto.setNombre("Gomez"); //modificamos el apellido inicial y lo setteamos
        assertEquals("Gomez", contacto.getNombre()); //comprobamos 
    }
-
 
    @Test
    public void  test_getNombre(){
@@ -78,4 +85,9 @@ public class ContactoTest {
         assertEquals("demo@ucp.com", c1.getEmail());
 
     }
+   
+
+
+
+
 }

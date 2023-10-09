@@ -5,40 +5,44 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.tp2.Buzon;
 import com.tp2.Correo;
-import com.tp2.Filtro;
+import com.tp2.EmailManager;
+
 
 public class FiltroPorRemitente {
 
- @Test
-public void test_filtroPorRemitente() {
-    Filtro filtro = new Filtro();
-    List<Correo> correos = new ArrayList<>();
-    Correo correo1 = new Correo("Mesa de examen", "18/12", "Profesor 1"); 
-    Correo correo2 = new Correo("Inscripcion", "aprobada", "Profesor 2");
-
-    correos.add(correo1);
-    correos.add(correo2);
-    List<Correo> correoFiltrado = filtro.filtarPorRemitente(correos, "Profesor 1");
-
-    assertEquals(1, correoFiltrado.size()); // Solo debe coincidir correo 1
-    assertEquals(correo1, correoFiltrado.get(0));
-}
 
 @Test
-public void test_filtroPorRemitente_NoEncontrado() {
-    Filtro filtro = new Filtro();
-    List<Correo> correos = new ArrayList<>();
-    Correo correo1 = new Correo("Mesa de examen", "18/12", "Profesor 1"); 
-    Correo correo2 = new Correo("Inscripcion", "aprobada", "Profesor 2");
+    public void test_enviaryFiltrarPorRemitente() {
 
-    correos.add(correo1);
-    correos.add(correo2);
-    
-    List<Correo> correoFiltrado = filtro.filtarPorRemitente(correos, "NoExistente"); //usamos un remitente que no existe
+        EmailManager emailManager = new EmailManager();
+        Buzon buzon = new Buzon("administracion@ucp.com", new ArrayList<>(), new ArrayList<>());
 
-    assertEquals(0, correoFiltrado.size()); // No debe coincidir ningún correo
+        Correo correo1 = new Correo("Mesa de examen", "18/12", "administracion@ucp.com", "demo@gmail.com");
+        Correo correo2 = new Correo("Pago vencido", " pagar mes septiembre", "administracion@ucp.com", "demo@gmail.com");
+        Correo correo3 = new Correo("limpieza", "pasillo 4","servicio@hotmail.com" ,"demo@gmail.com");
+        
+        emailManager.agregarBuzones(buzon);
+
+        emailManager.enviarCorreo(correo1);
+        emailManager.enviarCorreo(correo2);
+        emailManager.enviarCorreo(correo3);
+        
+
+        FiltroPorRemitente filtro = new FiltroPorRemitente();
+        List<Correo> correoFiltrados = filtro.filtroPorRemitente(buzon, "@ucp.com");
+
+       
+        assertEquals(2, correoFiltrados.size());
+
+     
+    }
+
+private List<Correo> filtroPorRemitente(Buzon buzon, String string) {
+    return null;
 }
+
 
 
 }
