@@ -12,7 +12,8 @@ import com.tp2.Filtro;
 public class FiltroPorContenido {
 
  @Test
-public void test_filtrarPorContenido() {
+public void test_filtroPorContenido() {
+
     Filtro filtro = new Filtro();
     List<Correo> correos = new ArrayList<>();
     Correo correo1 = new Correo("Mesa de examen", "18/12", "Profesor 1"); 
@@ -26,5 +27,20 @@ public void test_filtrarPorContenido() {
     assertEquals(correo2, correoFiltrado.get(0));
 }
 
+ @Test
+public void test_filtroPorContenido_NoEncontrado() {
+    Filtro filtro = new Filtro();
+    List<Correo> correos = new ArrayList<>();
+    Correo correo1 = new Correo("Mesa de examen", "18/12", "Profesor 1"); 
+    Correo correo2 = new Correo("Inscripcion", "no aprobada", "Profesor 2"); 
+    correos.add(correo1);
+    correos.add(correo2);
+    List<Correo> correoFiltrado = filtro.filtarPorContenido(correos, "no inscripto"); //contenido que filtraremos
 
+    assertEquals(0, correoFiltrado.size()); // no se debria encuentrar ningún correo
 }
+
+  
+}
+
+
