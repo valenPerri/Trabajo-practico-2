@@ -8,16 +8,17 @@ import org.junit.Test;
 import com.tp2.Buzon;
 import com.tp2.EmailManager;
 import com.tp2.Correo;
-import com.tp2.FiltroPorContenido;
+import com.tp2.FiltroPorRemitente;
 
 
-public class FiltroPorRemitente {
+public class FiltroPorRemitenteTest {
 
 @Test
 public void Test_Remitente() {
 
     Buzon buzon = new Buzon("demo@ucp.com", null, null);
     FiltroPorRemitente filtro = new FiltroPorRemitente();
+
     Correo correo1 = new Correo("pago", "pago vencido", "demo1@ucp.com", "correo1@example.com");
     Correo correo2 = new Correo("pago", "pago al dia", "demo2@ucp.com", "correo1@example.com");
     Correo correo3 = new Correo("examen", "aprobado", "demo3@ucp.com", "correo1@example.com");
