@@ -16,7 +16,6 @@ public class FiltroPorAsunto {
              return correoFiltrado;
     }
 
-
 private boolean contienePalabrasFiltrosEnAsunto(Correo correo, String palabraFiltro){
     return correo.getAsunto().toLowerCase().contains(palabraFiltro.toLowerCase());
 }

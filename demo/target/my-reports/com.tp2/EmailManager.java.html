@@ -5,58 +5,58 @@ import java.util.List;
 import java.util.Optional;
 
 public class EmailManager {
-<span class="nc" id="L8">    private List&lt;Buzon&gt; buzones = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L8">    private List&lt;Buzon&gt; buzones = new ArrayList&lt;&gt;();</span>
    
 
-
-<span class="nc" id="L12">public EmailManager(List&lt;Buzon&gt; buzones){</span>
-<span class="nc" id="L13">    this.buzones= new ArrayList&lt;&gt;(buzones);</span>
-<span class="nc" id="L14">}</span>
-
-public void agregarBuzones(Buzon usuario){
-<span class="nc" id="L17">    buzones.add(usuario);</span>
-
-<span class="nc" id="L19">}</span>
-
-
-
-
-public List&lt;Buzon&gt; getBuzones(){
-<span class="nc" id="L25">    return buzones;</span>
+<span class="fc" id="L11">public EmailManager(){</span>
 }
 
-public void crearCorreo(){
+<span class="fc" id="L14">public EmailManager(List&lt;Buzon&gt; buzones){</span>
+<span class="fc" id="L15">    this.buzones= new ArrayList&lt;&gt;(buzones);</span>
+<span class="fc" id="L16">}</span>
 
-<span class="nc" id="L30">}</span>
+public void agregarBuzones(Buzon usuario){
+<span class="fc" id="L19">    buzones.add(usuario);</span>
+<span class="fc" id="L20">}</span>
+
+public List&lt;Buzon&gt; getPara(){
+<span class="fc" id="L23">    return buzones;</span>
+}
+
+public void setPara(List&lt;Buzon&gt; para) {
+<span class="fc" id="L27">    this.buzones = para;</span>
+<span class="fc" id="L28">}</span>
+
+<span class="fc" id="L30">public void getCorreo(){</span>
+}
 
 public void buscarCorreo(){
     
-<span class="nc" id="L34">}</span>
+<span class="fc" id="L35">}</span>
 
 public void enviarCorreo(Correo email){
-    String remitenteCorreo =email.getRemitente();
+<span class="fc" id="L38">    String remitenteCorreo =email.getRemitente();</span>
 
-    Optional&lt;Buzon&gt; buzonRemitente = buzones.stream()
-    .filter(buzon -&gt; buzon.getEmailInterno().equals(remitenteCorreo))
-    .findFirst();
+<span class="fc" id="L40">    Optional&lt;Buzon&gt; buzonRemitente = buzones.stream()</span>
+<span class="fc" id="L41">    .filter(buzon -&gt; buzon.getEmailInterno().equals(remitenteCorreo))</span>
+<span class="fc" id="L42">    .findFirst();</span>
 
 
-    buzonRemitente.ifPresent(remitente -&gt; remitente.getBandejaDeEnviados().add(email));
-    List&lt;String&gt; destinatarios= email.getPara();
+<span class="pc" id="L45">    buzonRemitente.ifPresent(remitente -&gt; remitente.getBandejaDeEnviados().add(email));</span>
+<span class="fc" id="L46">    List&lt;String&gt; destinatarios= email.getPara();</span>
 
-    for(String destinatarioEmail : destinatarios){
-        Optional&lt;Buzon&gt; buzonDestinatarios = buzones.stream()
-<span class="nc" id="L49">            .filter(buzon -&gt; buzon.getEmailInterno().equals(destinatarioCorreo))</span>
-            .findFirst();
+<span class="fc bfc" id="L48" title="All 2 branches covered.">    for(String destinatarioCorreo : destinatarios){</span>
+<span class="fc" id="L49">        Optional&lt;Buzon&gt; buzonDestinatarios = buzones.stream()</span>
+<span class="fc" id="L50">            .filter(buzon -&gt; buzon.getEmailInterno().equals(destinatarioCorreo))</span>
+<span class="fc" id="L51">            .findFirst();</span>
 
-            buzonDestinatarios.ifPresent(destinatarios -&gt; destinatarios.getBandejaDeEntrada().add(email));
+<span class="fc" id="L53">            buzonDestinatarios.ifPresent(destinatario -&gt; destinatario.getBandejaDeEntrada().add(email));</span>
     }
     
-}
+<span class="fc" id="L56">}</span>
 
 
 
 
 }
-
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

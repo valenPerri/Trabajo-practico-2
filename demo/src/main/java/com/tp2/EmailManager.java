@@ -42,7 +42,7 @@ public void enviarCorreo(Correo email){
     .findFirst();
 
 
-    buzonRemitente.ifPresent(remitente -> remitente.getBandejaDeEnviados().add(email));
+    buzonRemitente.ifPresent(remitente -> remitente.getBandejaDeEnviados().add(email)); //lambda
     List<String> destinatarios= email.getPara();
 
     for(String destinatarioCorreo : destinatarios){

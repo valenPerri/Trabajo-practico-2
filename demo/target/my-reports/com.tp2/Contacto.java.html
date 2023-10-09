@@ -23,35 +23,31 @@ public class Contacto {
 <span class="fc" id="L23">        this.nombre = nuevoNombre;</span>
 <span class="fc" id="L24">    }</span>
 
-    public void setApellido(String nuevoApellido) {
-<span class="nc" id="L27">        this.nombre = nuevoApellido;</span>
-<span class="nc" id="L28">    }</span>
-
     public String getNombre() {
-<span class="fc" id="L31">        return nombre;</span>
+<span class="fc" id="L27">        return nombre;</span>
     }
 
     public String getApellido() {
-<span class="fc" id="L35">        return apellido;</span>
+<span class="fc" id="L31">        return apellido;</span>
     }
 
     public String getEmail() {
-<span class="fc" id="L39">        return email;</span>
+<span class="fc" id="L35">        return email;</span>
     }
 
     public void setEmail(String email) {
-<span class="fc" id="L43">    String expresion = &quot;^[A-Za-z0-9+_.-]+@(.+)$&quot;; // define regex para verificar el correo (letras, números seguidos de @)</span>
-<span class="fc" id="L44">    Pattern pattern = java.util.regex.Pattern.compile(expresion); // crea el objeto a través de la expresión</span>
-<span class="fc" id="L45">    Matcher matcheo = pattern.matcher(email); // hace match del email con las expresiones</span>
+<span class="fc" id="L39">    String expresion = &quot;^[A-Za-z0-9+_.-]+@(.+)$&quot;; // define regex para verificar el correo (letras, números seguidos de @)</span>
+<span class="fc" id="L40">    Pattern pattern = java.util.regex.Pattern.compile(expresion); // crea el objeto a través de la expresión</span>
+<span class="fc" id="L41">    Matcher matcheo = pattern.matcher(email); // hace match del email con las expresiones</span>
 
-<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (matcheo.matches()) {</span>
-<span class="fc" id="L48">        this.email = email; // aca hacemos el match</span>
-<span class="fc" id="L49">    } </span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">    if (matcheo.matches()) {</span>
+<span class="fc" id="L44">        this.email = email; // aca hacemos el match</span>
+<span class="fc" id="L45">    } </span>
     else {
-<span class="fc" id="L51">        throw new IllegalArgumentException(&quot;El correo electrónico no es válido&quot;);</span>
+<span class="fc" id="L47">        throw new IllegalArgumentException(&quot;El correo electrónico no es válido&quot;);</span>
     }
 
-<span class="fc" id="L54">}</span>
+<span class="fc" id="L50">}</span>
 
 
 

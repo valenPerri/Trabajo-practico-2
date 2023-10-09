@@ -23,10 +23,6 @@ public class Contacto {
         this.nombre = nuevoNombre;
     }
 
-    public void setApellido(String nuevoApellido) {
-        this.nombre = nuevoApellido;
-    }
-
     public String getNombre() {
         return nombre;
     }
