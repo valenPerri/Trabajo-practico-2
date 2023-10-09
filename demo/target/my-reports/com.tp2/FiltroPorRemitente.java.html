@@ -3,22 +3,25 @@
 import java.util.ArrayList;
 import java.util.List;
 
-<span class="nc" id="L6">public class FiltroPorRemitente {</span>
 
-    public List&lt;Correo&gt; filtarPorRemitente (List&lt;Correo&gt; correos, String palabraFiltro){
-<span class="nc" id="L9">        List&lt;Correo&gt; correoFiltrado=  new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L10" title="All 2 branches missed.">        for(Correo correo: correos){</span>
-<span class="nc bnc" id="L11" title="All 2 branches missed.">            if(contienePalabrasFiltrosEnRemitente(correo,palabraFiltro)){</span>
-<span class="nc" id="L12">                correoFiltrado.add(correo);</span>
+<span class="nc" id="L7">public class FiltroPorRemitente {</span>
+
+public List&lt;Correo&gt; filtarPorRemitente (List&lt;Correo&gt; correos, String palabraFiltro){
+<span class="nc" id="L10">        List&lt;Correo&gt; correoFiltrado=  new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L11" title="All 2 branches missed.">        for(Correo correo: correos){</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">            if(contienePalabrasFiltrosEnRemitente(correo,palabraFiltro)){</span>
+<span class="nc" id="L13">                correoFiltrado.add(correo);</span>
             }
         }
 
-<span class="nc" id="L16">             return correoFiltrado;</span>
+<span class="nc" id="L17">             return correoFiltrado;</span>
     }
 
-private boolean contienePalabrasFiltrosEnRemitente(Correo correo, String palabraFiltro){
-<span class="nc" id="L20">    return  correo.getRemitente().toLowerCase().contains(palabraFiltro.toLowerCase());</span>
-}
-    
+public boolean contienePalabrasFiltrosEnRemitente(Correo correo, String palabraFiltro){
+<span class="nc" id="L21">    return  correo.getRemitente().toLowerCase().contains(palabraFiltro.toLowerCase());</span>
+} 
+
+
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

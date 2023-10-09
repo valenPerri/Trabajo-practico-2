@@ -32,7 +32,7 @@ public void test_filtroPorContenido_NoEncontrado() {
     Filtro filtro = new Filtro();
     List<Correo> correos = new ArrayList<>();
     Correo correo1 = new Correo("Mesa de examen", "18/12", "Profesor 1"); 
-    Correo correo2 = new Correo("Inscripcion", "no aprobada", "Profesor 2"); 
+    Correo correo2 = new Correo("Inscripcion", "aprobada", "Profesor 2"); 
     correos.add(correo1);
     correos.add(correo2);
     List<Correo> correoFiltrado = filtro.filtarPorContenido(correos, "no inscripto"); //contenido que filtraremos

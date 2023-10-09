@@ -68,16 +68,16 @@ public void test_NOcontienePalabraDeFiltro(){
         filtroCorreo = new FiltroCorreo();
         List<Correo> correos = new ArrayList<>();
 
-         Correo correo1 = new Correo("Comida", "no hay mas comida", "kimba09@perrito.com");
-         Correo correo2 = new Correo("Reclamo", "ruidos molestos", "vecino4@depto.com");  //correos prueba
+         Correo correo1 = new Correo("Mesa de examen", "fecha 18/12", "Ingluis@ucp.com");
+         Correo correo2 = new Correo("Pago", "debe mes de septiembre", "demo@ucp.com");  //correos prueba
         
          correos.add(correo1);
          correos.add(correo2);
 
        
          List<String> palabrasFiltradas = new ArrayList<>();   //palabras que filtraremos
-         palabrasFiltradas.add("comida"); 
-         palabrasFiltradas.add("vecino4@depto.com");
+         palabrasFiltradas.add("fecha"); 
+         palabrasFiltradas.add("demo@ucp.com");
  
          List<Correo> correoFiltrado = filtroCorreo.filtarCorreos(correos, palabrasFiltradas);
          assertEquals(2, correoFiltrado.size()); // verifica y mantiene todos los correos
