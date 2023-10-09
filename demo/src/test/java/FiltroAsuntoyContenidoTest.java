@@ -18,24 +18,24 @@ public void TestFilterAsuntoContenidos1() {
 
     Buzon buzon = new Buzon("administracion@ucp.com", null, null);
     FiltroAsuntoyContenido filtro = new FiltroAsuntoyContenido();
-     Correo correo1 = new Correo("Mesa de examen", "aprobado fecha 18/12 ", "administracion@ucp.com", "demo@gmail.com");
+    Correo correo1 = new Correo("examen 1", "aprobado 1 ", "administracion@ucp.com", "demo@gmail.com");
     Correo correo2 = new Correo("limpieza", "pasillo 2", "administracion@ucp.com", "demo@gmail.com");
-    Correo correo3 = new Correo("Resultado examen", "examen aprobado", "administracion@ucp.com", "demo@gmail.com");
+    Correo correo3 = new Correo("examen 1", "aprobado 1", "administracion@ucp.com", "demo@gmail.com");
       
 
     buzon.getBandejaDeEntrada().add(correo1);
     buzon.getBandejaDeEntrada().add(correo2);
     buzon.getBandejaDeEntrada().add(correo3);
 
-    String palabraClaveAsunto = "examen";
-    String palabraClaveContenido = "aprobado";
+    String palabraClaveAsunto = "1";
+    String palabraClaveContenido = "aprobado 1";
 
     List<Correo> correosFiltrados = filtro.filtrarPorAsuntoyContenido(buzon, palabraClaveAsunto, palabraClaveContenido);
 
     assertNotNull(correosFiltrados);
     assertEquals(2, correosFiltrados.size());
-    assertEquals("examen", correosFiltrados.get(0).getAsunto());
-    assertEquals("e", correosFiltrados.get(1).getAsunto());
+    assertEquals("examen 1", correosFiltrados.get(0).getAsunto());
+    assertEquals("examen 1", correosFiltrados.get(1).getAsunto());
 }
 
 @Test

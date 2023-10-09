@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class FiltroPorContenido {
 
-    public List<Correo> filtrarPorContenido(Buzon buzon, String contenido) {
+   public List<Correo> filtrarPorContenido(Buzon buzon, String contenido) {
         List<Correo> bandejaEntrada = buzon.getBandejaDeEntrada();
         List<Correo> bandejaEnviados = buzon.getBandejaDeEnviados();
 
@@ -19,7 +19,6 @@ public class FiltroPorContenido {
         correosFiltrados.addAll(correosFiltradosEnviados);
 
         return correosFiltrados;
-    }
-
+  }
 
 }

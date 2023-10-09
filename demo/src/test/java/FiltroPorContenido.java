@@ -19,21 +19,21 @@ public class FiltroPorContenido {
     
     Buzon buzon = new Buzon("administracion@ucp.com", null, null);
     FiltroPorContenido filtro = new FiltroPorContenido();
+
     Correo correo1 = new Correo("pago", "vencido", "administracion@ucp.com", "luis@gmail.com");
-    Correo correo2 = new Correo("estado de examen", "examen", "administracion@ucp.com", "maria@gmail.com");
+    Correo correo2 = new Correo("estado de examen 1 ", "examen 1", "administracion@ucp.com", "maria@gmail.com");
     Correo correo3 = new Correo("mesa", "regular", "administracion@ucp.com", "valentina@gmail.com");
 
     buzon.getBandejaDeEntrada().add(correo1);
     buzon.getBandejaDeEntrada().add(correo2);
     buzon.getBandejaDeEntrada().add(correo3);
 
-    String contenido = "examen";
-
-    
-    List<Correo> correosFiltrados = filtro.filtrarPorContenido(buzon, contenido);
+    String palabraClave= "1";
+ 
+    List<Correo> correosFiltrados = filtro.filtrarPorContenido(buzon, palabraClave);
     assertNotNull(correosFiltrados);
     assertEquals(1, correosFiltrados.size());
-    assertEquals("examen", correosFiltrados.get(0).getContenido());
+    assertEquals("examen 1", correosFiltrados.get(0).getContenido());
 }
 
 

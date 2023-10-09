@@ -38,7 +38,7 @@ public class FiltroAsuntoyContenido {
     
         correosFiltrados.addAll(
             bandejaDeEntrada.stream()
-                .filter(correo -> correo.getAsunto().contains(palabraFiltroAsunto) && correo.getContenido().contains(palabraClaveContenido))
+                .filter(correo -> correo.getAsunto().contains(palabraFiltroAsunto) && correo.getContenido().contains(palabraFiltroContenido))
                 .collect(Collectors.toList())
         );
     
