@@ -2,25 +2,26 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
-<span class="nc" id="L7">public class FiltroPorRemitente {</span>
+<span class="fc" id="L8">public class FiltroPorRemitente {</span>
 
-public List&lt;Correo&gt; filtarPorRemitente (List&lt;Correo&gt; correos, String palabraFiltro){
-<span class="nc" id="L10">        List&lt;Correo&gt; correoFiltrado=  new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        for(Correo correo: correos){</span>
-<span class="nc bnc" id="L12" title="All 2 branches missed.">            if(contienePalabrasFiltrosEnRemitente(correo,palabraFiltro)){</span>
-<span class="nc" id="L13">                correoFiltrado.add(correo);</span>
-            }
-        }
+  public List&lt;Correo&gt; filtroPorRemitente(Buzon buzon, String remitente) {
+<span class="fc" id="L11">        List&lt;Correo&gt; bandejaDeEntrada = buzon.getBandejaDeEntrada();</span>
+<span class="fc" id="L12">        List&lt;Correo&gt; bandejaDeEnviados = buzon.getBandejaDeEnviados();</span>
 
-<span class="nc" id="L17">             return correoFiltrado;</span>
+<span class="fc" id="L14">        List&lt;Correo&gt; correoFiltradoEntrada = bandejaDeEntrada.stream().filter(correo -&gt; correo.getRemitente().contains(remitente)).collect(Collectors.toList());</span>
+        
+<span class="fc" id="L16">        List&lt;Correo&gt; correoFiltradoEnviados = bandejaDeEnviados.stream().filter(correo -&gt; correo.getRemitente().contains(remitente)).collect(Collectors.toList());</span>
+
+<span class="fc" id="L18">        List&lt;Correo&gt; correoFiltrados = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L20">        correoFiltrados.addAll(correoFiltradoEntrada);</span>
+<span class="fc" id="L21">        correoFiltrados.addAll(correoFiltradoEnviados);</span>
+
+<span class="fc" id="L23">        return correoFiltrados;</span>
     }
-
-public boolean contienePalabrasFiltrosEnRemitente(Correo correo, String palabraFiltro){
-<span class="nc" id="L21">    return  correo.getRemitente().toLowerCase().contains(palabraFiltro.toLowerCase());</span>
-} 
-
 
 
 }

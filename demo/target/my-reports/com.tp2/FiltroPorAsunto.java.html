@@ -2,25 +2,43 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-<span class="fc" id="L6">public class FiltroPorAsunto {</span>
-
+<span class="fc" id="L7">public class FiltroPorAsunto {</span>
+    /* 
+ 
     public List&lt;Correo&gt; filtarPorAsunto(List&lt;Correo&gt; correos, String palabraFiltro){
-<span class="fc" id="L9">        List&lt;Correo&gt; correoFiltrado=  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L10" title="All 2 branches covered.">        for(Correo correo: correos){</span>
-<span class="pc bpc" id="L11" title="1 of 2 branches missed.">            if(contienePalabrasFiltrosEnAsunto(correo,palabraFiltro)){</span>
-<span class="fc" id="L12">                correoFiltrado.add(correo);</span>
+        List&lt;Correo&gt; correoFiltrado=  new ArrayList&lt;&gt;();
+        for(Correo correo: correos){
+            if(contienePalabrasFiltrosEnAsunto(correo,palabraFiltro)){
+                correoFiltrado.add(correo);
             }
         }
 
-<span class="fc" id="L16">             return correoFiltrado;</span>
+             return correoFiltrado;
     }
 
 private boolean contienePalabrasFiltrosEnAsunto(Correo correo, String palabraFiltro){
-<span class="fc" id="L20">    return correo.getAsunto().toLowerCase().contains(palabraFiltro.toLowerCase());</span>
+    return correo.getAsunto().toLowerCase().contains(palabraFiltro.toLowerCase());
 }
+*/ 
 
+public List&lt;Correo&gt; filtrarPorAsunto(Buzon buzon, String asunto) {
+<span class="fc" id="L27">        List&lt;Correo&gt; bandejaEntrada = buzon.getBandejaDeEntrada();</span>
+<span class="fc" id="L28">        List&lt;Correo&gt; bandejaEnviados = buzon.getBandejaDeEnviados();</span>
 
+        
+<span class="fc" id="L31">        List&lt;Correo&gt; correosFiltradosEntrada = bandejaEntrada.stream().filter(correo -&gt; correo.getAsunto().contains(asunto)).collect(Collectors.toList());</span>
+
+        
+<span class="fc" id="L34">        List&lt;Correo&gt; correosFiltradosEnviados = bandejaEnviados.stream().filter(correo -&gt; correo.getAsunto().contains(asunto)).collect(Collectors.toList());</span>
+
+<span class="fc" id="L36">        List&lt;Correo&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L37">        correosFiltrados.addAll(correosFiltradosEntrada);</span>
+<span class="fc" id="L38">        correosFiltrados.addAll(correosFiltradosEnviados);</span>
+
+<span class="fc" id="L40">        return correosFiltrados;</span>
+    }
 
 }
     

@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FiltroCorreo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Correo</a> &gt; <a href="index.source.html" class="el_package">com.tp2</a> &gt; <span class="el_source">FiltroCorreo.java</span></div><h1>FiltroCorreo.java</h1><pre class="source lang-java linenums">package com.tp2;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-<span class="fc" id="L5">public class FiltroCorreo {</span>
-
+<span class="nc" id="L6">public class FiltroCorreo {</span>
+/* 
     public List&lt;Correo&gt; filtarCorreos(List&lt;Correo&gt; correos, List&lt;String&gt; palabrasFiltradas){
-<span class="fc" id="L8">        List&lt;Correo&gt; correoFiltrado= new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L9" title="All 2 branches covered.">        for(Correo correo: correos){</span>
+        List&lt;Correo&gt; correoFiltrado= new ArrayList&lt;&gt;();
+        for(Correo correo: correos){
 
-<span class="pc bpc" id="L11" title="1 of 2 branches missed.">            if(contienePalabrasFiltro(correo, palabrasFiltradas)){</span>
-<span class="fc" id="L12">                correoFiltrado.add(correo);</span>
+            if(contienePalabrasFiltro(correo, palabrasFiltradas)){
+                correoFiltrado.add(correo);
             }
         }
-<span class="fc" id="L15">        return correoFiltrado;</span>
+        return correoFiltrado;
     }
 
 private boolean contienePalabrasFiltro(Correo correo, List&lt;String&gt; palabrasFiltradas){
-<span class="fc" id="L19">    String contenidoCorreo= correo.getAsunto() + &quot; &quot; + correo.getContenido() + &quot; &quot; + correo.getRemitente();</span>
-<span class="pc bpc" id="L20" title="1 of 2 branches missed.">    for(String palabraFiltro : palabrasFiltradas){</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        if(contenidoCorreo.toLowerCase().contains(palabraFiltro.toLowerCase())){</span>
-<span class="fc" id="L22">            return true;</span>
+    String contenidoCorreo= correo.getAsunto() + &quot; &quot; + correo.getContenido() + &quot; &quot; + correo.getRemitente();
+    for(String palabraFiltro : palabrasFiltradas){
+        if(contenidoCorreo.toLowerCase().contains(palabraFiltro.toLowerCase())){
+            return true;
         }
     }
-<span class="nc" id="L25">        return false;</span>
+        return false;
+} */
+
+ public List&lt;Correo&gt; filtrarPorAsuntoContenidoRemitente(Buzon buzon, String palabraFiltroAsunto, String palabraFiltroContenido, String palabraFiltroRemitente) {
+<span class="nc" id="L30">    List&lt;Correo&gt; bandejaDeEntrada = buzon.getBandejaDeEntrada();</span>
+<span class="nc" id="L31">    List&lt;Correo&gt; bandejaDeEnviados = buzon.getBandejaDeEnviados();</span>
+
+<span class="nc" id="L33">    List&lt;Correo&gt; correoFiltrados = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L35">    correoFiltrados.addAll(</span>
+<span class="nc" id="L36">        bandejaDeEntrada.stream()</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto)</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                              &amp;&amp; correo.getContenido().contains(palabraFiltroContenido)</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">                              &amp;&amp; correo.getRemitente().contains(palabraFiltroRemitente))</span>
+<span class="nc" id="L40">            .collect(Collectors.toList())</span>
+    );
+
+<span class="nc" id="L43">    correoFiltrados.addAll(</span>
+<span class="nc" id="L44">        bandejaDeEnviados.stream()</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto)</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">                              &amp;&amp; correo.getContenido().contains(palabraFiltroContenido)</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">                              &amp;&amp; correo.getRemitente().contains(palabraFiltroRemitente))</span>
+<span class="nc" id="L48">            .collect(Collectors.toList())</span>
+    );
+
+<span class="nc" id="L51">    return correoFiltrados;</span>
+}
 }
 
 
-
-
-
-
-}
     
 
 

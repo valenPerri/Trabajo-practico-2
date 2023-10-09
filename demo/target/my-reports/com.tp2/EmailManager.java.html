@@ -42,7 +42,7 @@ public void enviarCorreo(Correo email){
 <span class="fc" id="L42">    .findFirst();</span>
 
 
-<span class="pc" id="L45">    buzonRemitente.ifPresent(remitente -&gt; remitente.getBandejaDeEnviados().add(email)); //lambda</span>
+<span class="fc" id="L45">    buzonRemitente.ifPresent(remitente -&gt; remitente.getBandejaDeEnviados().add(email)); //lambda</span>
 <span class="fc" id="L46">    List&lt;String&gt; destinatarios= email.getPara();</span>
 
 <span class="fc bfc" id="L48" title="All 2 branches covered.">    for(String destinatarioCorreo : destinatarios){</span>

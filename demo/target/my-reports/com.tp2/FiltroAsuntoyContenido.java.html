@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FiltroAsuntoyContenido.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Correo</a> &gt; <a href="index.source.html" class="el_package">com.tp2</a> &gt; <span class="el_source">FiltroAsuntoyContenido.java</span></div><h1>FiltroAsuntoyContenido.java</h1><pre class="source lang-java linenums">package com.tp2;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L7">public class FiltroAsuntoyContenido {</span>
+
+    
+      /*public List&lt;Correo&gt; filtrarAsuntoContenido(List&lt;Correo&gt; correos, List&lt;String&gt; palabrasClave) {
+        List&lt;Correo&gt; correosFiltrados = new ArrayList&lt;&gt;();
+
+        for (Correo correo : correos) {
+            // Verificar si el asunto, contenido o remitente contiene alguna palabra clave
+            if (contienePalabraClave(correo, palabrasClave)) {
+                correosFiltrados.add(correo);
+            }
+        }
+
+        return correosFiltrados;
+    }
+
+    private boolean contienePalabraClave(Correo correo, List&lt;String&gt; palabrasClave) {
+        String contenidoCorreo = correo.getAsunto() + &quot; &quot; + correo.getContenido();
+        for (String palabraClave : palabrasClave) {
+            if (contenidoCorreo.toLowerCase().contains(palabraClave.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    } */ 
+
+    public List&lt;Correo&gt; filtrarPorAsuntoyContenido(Buzon buzon, String palabraFiltroAsunto, String palabraFiltroContenido) {
+<span class="fc" id="L34">        List&lt;Correo&gt; bandejaDeEntrada = buzon.getBandejaDeEntrada();</span>
+<span class="fc" id="L35">        List&lt;Correo&gt; bandejaDeEnviados = buzon.getBandejaDeEnviados();</span>
+    
+<span class="fc" id="L37">        List&lt;Correo&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
+    
+<span class="fc" id="L39">        correosFiltrados.addAll(</span>
+<span class="fc" id="L40">            bandejaDeEntrada.stream()</span>
+<span class="pc bpc" id="L41" title="1 of 4 branches missed.">                .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto) &amp;&amp; correo.getContenido().contains(palabraFiltroContenido))</span>
+<span class="fc" id="L42">                .collect(Collectors.toList())</span>
+        );
+    
+<span class="fc" id="L45">        correosFiltrados.addAll(</span>
+<span class="fc" id="L46">            bandejaDeEnviados.stream()</span>
+<span class="pc bpc" id="L47" title="1 of 4 branches missed.">                .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto) &amp;&amp; correo.getContenido().contains(palabraFiltroContenido))</span>
+<span class="fc" id="L48">                .collect(Collectors.toList())</span>
+        );
+    
+<span class="fc" id="L51">        return correosFiltrados;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

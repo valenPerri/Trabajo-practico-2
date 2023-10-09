@@ -1,7 +1,7 @@
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.tp2.Buzon;
 import com.tp2.Correo;
-
+import com.tp2.FiltroCorreo;
 
 
 public class FiltroCorreoTest {
@@ -64,13 +64,40 @@ public class FiltroCorreoTest {
       para.add("valentina@gmail.com");
       para.add("hola");
 
-
-      Correo correo = new Correo("Mesa de examen", "18/12", "administracion@ucp.com", para);
-
-      
+      Correo correo = new Correo("Mesa de examen", "18/12", "administracion@ucp.com", para);   
       assertEquals(4,correo.getPara().size());
+
    }
         
+@Test
+public void test_filtrarAsuntoContenidoRemitente(){
+      
+        Buzon buzon = new Buzon("administracion@ucp.com", null, null);
+        FiltroCorreo filtro = new FiltroCorreo();
+
+        Correo correo1 = new Correo("Mesa de examen", "aprobado", "Remitente 1");
+        Correo correo2 = new Correo("resultado examen", "aprobado", "Remitente 2");
+        Correo correo3 = new Correo("inscripcion de examen", "aprobado", "Remitente 3");
+        
+        buzon.getBandejaDeEntrada().add(correo1);
+        buzon.getBandejaDeEntrada().add(correo2);
+        buzon.getBandejaDeEnviados().add(correo3);
+        
+        String palabraFiltroAsunto = "examen";
+        String palabraFiltroContenido = "aprobado";
+        String palabraFiltroRemitente = "Remitente";
+        List<Correo> correoFiltrados = filtro.filtrarPorAsuntoContenidoRemitente(buzon, palabraFiltroAsunto, palabraFiltroContenido, palabraFiltroRemitente);
+        
+        assertEquals(3, correoFiltrados.size());
+        assertTrue(correoFiltrados.contains(correo1));
+        assertTrue(correoFiltrados.contains(correo2));
+        assertTrue(correoFiltrados.contains(correo3));
+
+    }
+
+
+
+
 
 }
 

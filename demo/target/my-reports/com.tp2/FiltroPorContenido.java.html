@@ -2,23 +2,24 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-<span class="nc" id="L6">public class FiltroPorContenido {</span>
-    public List&lt;Correo&gt; filtarPorContenido (List&lt;Correo&gt; correos, String palabraFiltro){
-<span class="nc" id="L8">        List&lt;Correo&gt; correoFiltrado=  new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L9" title="All 2 branches missed.">        for(Correo correo: correos){</span>
-<span class="nc bnc" id="L10" title="All 2 branches missed.">            if(contienePalabrasFiltrosEnContenido(correo,palabraFiltro)){</span>
-<span class="nc" id="L11">                correoFiltrado.add(correo);</span>
-            }
-        }
+<span class="fc" id="L7">public class FiltroPorContenido {</span>
 
-<span class="nc" id="L15">             return correoFiltrado;</span>
-    }
+   public List&lt;Correo&gt; filtrarPorContenido(Buzon buzon, String contenido) {
+<span class="fc" id="L10">        List&lt;Correo&gt; bandejaEntrada = buzon.getBandejaDeEntrada();</span>
+<span class="fc" id="L11">        List&lt;Correo&gt; bandejaEnviados = buzon.getBandejaDeEnviados();</span>
 
-private boolean contienePalabrasFiltrosEnContenido(Correo correo, String palabraFiltro){
-<span class="nc" id="L19">    return correo.getContenido().toLowerCase().contains(palabraFiltro.toLowerCase());</span>
+<span class="fc" id="L13">        List&lt;Correo&gt; correosFiltradosEntrada = bandejaEntrada.stream().filter(correo -&gt; correo.getContenido().contains(contenido)).collect(Collectors.toList());</span>
+        
+<span class="pc" id="L15">        List&lt;Correo&gt; correosFiltradosEnviados = bandejaEnviados.stream().filter(correo -&gt; correo.getContenido().contains(contenido)).collect(Collectors.toList());</span>
+
+<span class="fc" id="L17">        List&lt;Correo&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L18">        correosFiltrados.addAll(correosFiltradosEntrada);</span>
+<span class="fc" id="L19">        correosFiltrados.addAll(correosFiltradosEnviados);</span>
+
+<span class="fc" id="L21">        return correosFiltrados;</span>
+  }
+
 }
-
-}
-    
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
