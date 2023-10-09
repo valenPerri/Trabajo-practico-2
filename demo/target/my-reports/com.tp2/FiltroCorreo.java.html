@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-<span class="nc" id="L6">public class FiltroCorreo {</span>
+<span class="fc" id="L6">public class FiltroCorreo {</span>
 /* 
     public List&lt;Correo&gt; filtarCorreos(List&lt;Correo&gt; correos, List&lt;String&gt; palabrasFiltradas){
         List&lt;Correo&gt; correoFiltrado= new ArrayList&lt;&gt;();
@@ -27,28 +27,28 @@ private boolean contienePalabrasFiltro(Correo correo, List&lt;String&gt; palabra
 } */
 
  public List&lt;Correo&gt; filtrarPorAsuntoContenidoRemitente(Buzon buzon, String palabraFiltroAsunto, String palabraFiltroContenido, String palabraFiltroRemitente) {
-<span class="nc" id="L30">    List&lt;Correo&gt; bandejaDeEntrada = buzon.getBandejaDeEntrada();</span>
-<span class="nc" id="L31">    List&lt;Correo&gt; bandejaDeEnviados = buzon.getBandejaDeEnviados();</span>
+<span class="fc" id="L30">    List&lt;Correo&gt; bandejaDeEntrada = buzon.getBandejaDeEntrada();</span>
+<span class="fc" id="L31">    List&lt;Correo&gt; bandejaDeEnviados = buzon.getBandejaDeEnviados();</span>
 
-<span class="nc" id="L33">    List&lt;Correo&gt; correoFiltrados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L33">    List&lt;Correo&gt; correoFiltrados = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L35">    correoFiltrados.addAll(</span>
-<span class="nc" id="L36">        bandejaDeEntrada.stream()</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto)</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">                              &amp;&amp; correo.getContenido().contains(palabraFiltroContenido)</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">                              &amp;&amp; correo.getRemitente().contains(palabraFiltroRemitente))</span>
-<span class="nc" id="L40">            .collect(Collectors.toList())</span>
+<span class="fc" id="L35">    correoFiltrados.addAll(</span>
+<span class="fc" id="L36">        bandejaDeEntrada.stream()</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">            .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto)</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">                              &amp;&amp; correo.getContenido().contains(palabraFiltroContenido)</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">                              &amp;&amp; correo.getRemitente().contains(palabraFiltroRemitente))</span>
+<span class="fc" id="L40">            .collect(Collectors.toList())</span>
     );
 
-<span class="nc" id="L43">    correoFiltrados.addAll(</span>
-<span class="nc" id="L44">        bandejaDeEnviados.stream()</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">            .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto)</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">                              &amp;&amp; correo.getContenido().contains(palabraFiltroContenido)</span>
-<span class="nc bnc" id="L47" title="All 2 branches missed.">                              &amp;&amp; correo.getRemitente().contains(palabraFiltroRemitente))</span>
-<span class="nc" id="L48">            .collect(Collectors.toList())</span>
+<span class="fc" id="L43">    correoFiltrados.addAll(</span>
+<span class="fc" id="L44">        bandejaDeEnviados.stream()</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">            .filter(correo -&gt; correo.getAsunto().contains(palabraFiltroAsunto)</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">                              &amp;&amp; correo.getContenido().contains(palabraFiltroContenido)</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">                              &amp;&amp; correo.getRemitente().contains(palabraFiltroRemitente))</span>
+<span class="fc" id="L48">            .collect(Collectors.toList())</span>
     );
 
-<span class="nc" id="L51">    return correoFiltrados;</span>
+<span class="fc" id="L51">    return correoFiltrados;</span>
 }
 }
 
